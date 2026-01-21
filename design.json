@@ -1,0 +1,86 @@
+{
+  "colors": {
+    "background": "#FAF9F7",
+    "textPrimary": "#1A1A1A",
+    "textSecondary": "#6B6B6B",
+    "borderSubtle": "#E5E5E5",
+    "accent": "#5A5A42"
+  },
+  "typography": {
+    "fontFamily": {
+      "serif": ["Georgia", "Times New Roman", "serif"],
+      "sans": [
+        "-apple-system",
+        "BlinkMacSystemFont",
+        "Segoe UI",
+        "system-ui",
+        "sans-serif"
+      ]
+    },
+    "fontSize": {
+      "xs": { "size": "0.8rem", "lineHeight": "1.4" },
+      "sm": { "size": "0.9rem", "lineHeight": "1.5" },
+      "base": { "size": "1rem", "lineHeight": "1.75" },
+      "lg": { "size": "1.05rem", "lineHeight": "1.75" },
+      "xl": { "size": "1.25rem", "lineHeight": "1.4" },
+      "2xl": { "size": "1.5rem", "lineHeight": "1.3" },
+      "3xl": { "size": "2rem", "lineHeight": "1.25" },
+      "4xl": { "size": "2.5rem", "lineHeight": "1.2" }
+    }
+  },
+  "layout": {
+    "maxWidth": {
+      "home": "900px",
+      "list": "900px",
+      "detail": "720px"
+    },
+    "spacing": {
+      "section": "4rem",
+      "paragraph": "1.25em"
+    }
+  },
+  "components": {
+    "page": {
+      "backgroundColor": "background",
+      "textColor": "textPrimary"
+    },
+    "heading": {
+      "font": "serif",
+      "color": "textPrimary"
+    },
+    "bodyText": {
+      "font": "sans",
+      "color": "textPrimary"
+    },
+    "metaText": {
+      "font": "sans",
+      "color": "textSecondary",
+      "size": "sm"
+    },
+    "link": {
+      "style": "underline",
+      "hoverOpacity": 0.7,
+      "transition": "150ms"
+    },
+    "bookCard": {
+      "border": "none",
+      "hoverEffect": "subtleUnderline",
+      "image": {
+        "aspectRatio": "2/3",
+        "rounded": false,
+        "shadow": false
+      }
+    }
+  },
+  "motion": {
+    "enabled": true,
+    "type": "opacity",
+    "duration": [150, 200],
+    "easing": "ease-out"
+  },
+  "rules": {
+    "noNewColorsWithoutDesignUpdate": true,
+    "noInlineFontOverrides": true,
+    "contentFirst": true
+  }
+}
