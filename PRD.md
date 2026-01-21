@@ -232,4 +232,4 @@ Category
 ---
 
 ## 16. Tech Stack & Architecture
-![Tech Stack & Architecture](./TechStack&Architecture.md)
+![Tech Stack & Architecture](tech_stack&architecture.md)
