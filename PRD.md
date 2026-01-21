@@ -228,3 +228,8 @@ Category
 * PRD completed
 * Architecture finalized
 * Ready for implementation
+
+---
+
+## 16. Tech Stack & Architecture
+![Tech Stack & Architecture](./TechStack&Architecture.md)
