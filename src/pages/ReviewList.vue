@@ -31,7 +31,7 @@
           :key="review.slug"
           class="group border-b border-border pb-10"
         >
-          <div class="flex gap-6 items-start">
+          <div class="flex flex-col sm:flex-row gap-6 items-start">
             <router-link
               v-if="review.cover"
               :to="'/reviews/' + review.slug"
@@ -41,7 +41,7 @@
               <img
                 :src="review.cover"
                 :alt="review.title"
-                class="w-[92px] h-auto object-cover"
+                class="w-[140px] h-[188px] sm:w-[180px] sm:h-[240px] lg:w-[260px] lg:h-[348px] object-cover"
                 loading="lazy"
               />
             </router-link>
