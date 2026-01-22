@@ -2,7 +2,7 @@
   <article v-if="review" class="max-w-detail mx-auto px-6 pt-page-top pb-24">
     <header class="mb-section-gap">
       <div v-if="review.cover" class="mb-12 max-w-xs mx-auto overflow-hidden">
-        <img :src="review.cover" :alt="review.title" class="w-full h-auto object-cover grayscale" />
+        <img :src="review.cover" :alt="review.title" class="w-full h-auto object-cover" />
       </div>
       <h1 class="text-page font-serif mb-6 leading-tight text-center">{{ review.title }}</h1>
 

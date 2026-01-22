@@ -41,7 +41,7 @@
               <img
                 :src="review.cover"
                 :alt="review.title"
-                class="w-[92px] h-auto object-cover grayscale"
+                class="w-[92px] h-auto object-cover"
                 loading="lazy"
               />
             </router-link>
