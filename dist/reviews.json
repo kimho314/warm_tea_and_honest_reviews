@@ -1,0 +1,24 @@
+[
+  {
+    "slug": "the-great-gatsby",
+    "title": "The Great Gatsby",
+    "author": "F. Scott Fitzgerald",
+    "rating": 5,
+    "category": "Classic",
+    "publishedAt": "2026-01-20",
+    "file": "the-great-gatsby.docx",
+    "cover": "/covers/gatsby.jpg",
+    "excerpt": "A deep dive into the American Dream and the tragic life of Jay Gatsby. Fitzgerald's prose remains as haunting as ever."
+  },
+  {
+    "slug": "1984",
+    "title": "1984",
+    "author": "George Orwell",
+    "rating": 4.5,
+    "category": "Dystopian",
+    "publishedAt": "2026-01-15",
+    "file": "1984.docx",
+    "cover": "/covers/1984.jpg",
+    "excerpt": "Orwell's chilling vision of a totalitarian future remains a vital warning for our own times."
+  }
+]
