@@ -1,49 +1,45 @@
 # Tailwind CSS Configuration
 
-## Book Review Website
+## Book Review Website (Document-first)
 
 ---
 
 ## 1. Purpose
 
-This document defines the **concrete Tailwind CSS configuration values** based on the approved UI Tone & Typography Guidelines.
+This document defines the **final Tailwind CSS configuration** aligned with the **Document-first, typography-driven design philosophy** inspired by the reference site.
 
 The goal is to:
 
-* Lock visual consistency early
-* Prevent design drift during implementation
-* Encode typography and spacing decisions into the system
+- Match the reference site’s editorial, essay-like feel
+- Treat typography and spacing as the primary design tools
+- Avoid card, grid, or app-like UI patterns
+- Lock design decisions to prevent future drift
 
 ---
 
 ## 2. Tailwind Setup Assumptions
 
-* Tailwind CSS v3+
-* Vue 3 + Vite
-* JIT mode enabled (default)
+- Tailwind CSS v3+
+- Vue 3 + Vite
+- JIT mode enabled (default)
 
 ---
 
-## 3. tailwind.config.js (Core Theme)
+## 3. tailwind.config.js (Final)
 
 ```js
 import defaultTheme from 'tailwindcss/defaultTheme'
 
 export default {
-  content: [
-    './index.html',
-    './src/**/*.{vue,js,ts,jsx,tsx}'
-  ],
+  content: ['./index.html', './src/**/*.{vue,js,ts}'],
   theme: {
     extend: {
       colors: {
         background: '#FAF9F7',
-        textPrimary: '#1A1A1A',
-        textSecondary: '#6B6B6B',
-        borderSubtle: '#E5E5E5',
-        accent: '#5A5A42' // muted olive-brown
+        text: '#1A1A1A',
+        muted: '#555555',
+        border: '#E5E5E5'
       },
-
       fontFamily: {
         serif: ['Georgia', 'Times New Roman', 'serif'],
         sans: [
@@ -53,31 +49,23 @@ export default {
           ...defaultTheme.fontFamily.sans
         ]
       },
-
       fontSize: {
-        xs: ['0.8rem', { lineHeight: '1.4' }],
-        sm: ['0.9rem', { lineHeight: '1.5' }],
-        base: ['1rem', { lineHeight: '1.75' }],
-        lg: ['1.05rem', { lineHeight: '1.75' }],
-        xl: ['1.25rem', { lineHeight: '1.4' }],
-        '2xl': ['1.5rem', { lineHeight: '1.3' }],
-        '3xl': ['2rem', { lineHeight: '1.25' }],
-        '4xl': ['2.5rem', { lineHeight: '1.2' }]
+        base: ['1rem', { lineHeight: '1.8' }],
+        meta: ['0.9rem', { lineHeight: '1.6' }],
+        section: ['2rem', { lineHeight: '1.3' }],
+        page: ['2.75rem', { lineHeight: '1.2' }],
+        site: ['3.25rem', { lineHeight: '1.15' }]
       },
-
       maxWidth: {
-        content: '900px',
-        prose: '720px'
+        list: '720px',
+        detail: '640px'
       },
-
       spacing: {
-        section: '4rem',
-        paragraph: '1.25em'
+        'page-top': '5rem',
+        'section-gap': '3.5rem'
       },
-
       transitionDuration: {
-        150: '150ms',
-        200: '200ms'
+        100: '100ms'
       }
     }
   },
@@ -87,7 +75,9 @@ export default {
 
 ---
 
-## 4. Base Layer Styles
+## 4. Base Layer Styles (Critical)
+
+These base styles intentionally keep Tailwind **out of the way** and allow the layout to feel like a traditional document.
 
 ```css
 @tailwind base;
@@ -96,11 +86,11 @@ export default {
 
 @layer base {
   body {
-    @apply bg-background text-textPrimary font-sans;
+    @apply bg-background text-text font-sans;
   }
 
   h1, h2, h3, h4 {
-    @apply font-serif text-textPrimary;
+    @apply font-serif text-text;
   }
 
   p {
@@ -108,7 +98,7 @@ export default {
   }
 
   a {
-    @apply text-textPrimary underline underline-offset-4 transition-opacity duration-150;
+    @apply text-text underline underline-offset-4 transition-opacity duration-100;
   }
 
   a:hover {
@@ -119,52 +109,64 @@ export default {
 
 ---
 
-## 5. Typography Usage Rules
+## 5. Typography Usage Rules (Mandatory)
 
-| Element       | Tailwind Usage             |
-| ------------- | -------------------------- |
-| Site Title    | text-4xl font-serif        |
-| Page Title    | text-3xl font-serif        |
-| Section Title | text-xl font-serif         |
-| Body Text     | text-base font-sans        |
-| Metadata      | text-sm text-textSecondary |
+| Element | Tailwind Class |
+|------|---------------|
+| Site Title (Home) | `text-site font-serif` |
+| Page Title | `text-page font-serif` |
+| Section Title | `text-section font-serif` |
+| Body Text | `text-base font-sans` |
+| Metadata | `text-meta text-muted` |
+
+> **Do not** use Tailwind’s default `text-xl`, `text-2xl`, etc.
+> All typography must come from the system above.
 
 ---
 
-## 6. Layout Utility Conventions
+## 6. Layout Conventions
 
-### 6.1 Page Wrapper
+### 6.1 Page Wrapper (List & Home)
 
 ```html
-<div class="max-w-content mx-auto px-6">
+<div class="max-w-list mx-auto px-6 pt-page-top">
 ```
 
 ### 6.2 Review Detail Wrapper
 
 ```html
-<article class="max-w-prose mx-auto px-6">
+<article class="max-w-detail mx-auto px-6 pt-page-top">
 ```
 
 ---
 
-## 7. Interaction & Motion
+## 7. Interaction & Motion Rules
 
-* Use `transition-opacity` only
-* Duration: `duration-150` or `duration-200`
-* No transform or scale animations
+- Only opacity transitions are allowed
+- Duration: `duration-100`
+- No transforms, scales, shadows, or animations
+
+This site should feel **static, calm, and print-like**.
 
 ---
 
-## 8. Design Lock Rules
+## 8. Design Lock Rules (Strict)
 
-* Do not introduce new colors without updating this config
-* Do not override font sizes inline
-* Typography changes must be system-level
+- ❌ No cards
+- ❌ No grids
+- ❌ No shadows
+- ❌ No decorative UI components
+
+- ✅ Articles
+- ✅ Headings
+- ✅ Paragraph flow
+
+Any visual change must be justified by typography or spacing, not UI effects.
 
 ---
 
 ## 9. Status
 
-* Tailwind theme finalized
-* Safe to begin UI implementation
-* Acts as single source of truth for styling
+- Tailwind configuration finalized (A-track)
+- Reference-aligned
+- Ready for clean implementation
