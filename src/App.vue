@@ -1,21 +1,29 @@
 <template>
   <div class="min-h-screen">
-    <header class="max-w-list mx-auto px-6 pt-page-top">
-      <router-link to="/" class="no-underline">
-        <h1 class="text-site font-serif">Warm Tea & Honest Reviews</h1>
-      </router-link>
-      <nav class="mt-6 flex space-x-6">
-        <router-link to="/reviews" class="text-meta text-muted no-underline hover:underline">All Reviews</router-link>
-        <router-link to="/about" class="text-meta text-muted no-underline hover:underline">About</router-link>
-      </nav>
+    <header class="border-b border-border">
+      <div class="max-w-content mx-auto px-page-padding py-8 flex flex-col md:flex-row justify-between items-center gap-8">
+        <router-link to="/" class="no-underline group flex flex-col md:flex-row items-center gap-6">
+          <img src="/images/Logo.png" alt="Logo" class="w-32 md:w-40 h-auto object-contain" />
+          <div class="flex flex-col items-center md:items-start">
+            <span class="text-2xl font-serif tracking-tight group-hover:text-accent transition-colors">Warm Tea & Honest Reviews</span>
+          </div>
+        </router-link>
+        <nav class="flex space-x-8">
+          <router-link to="/reviews" class="text-xs text-text-secondary no-underline hover:text-text-primary uppercase tracking-[0.2em] transition-colors">Reviews</router-link>
+          <router-link to="/about" class="text-xs text-text-secondary no-underline hover:text-text-primary uppercase tracking-[0.2em] transition-colors">About</router-link>
+        </nav>
+      </div>
     </header>
 
     <main>
       <router-view></router-view>
     </main>
 
-    <footer class="max-w-list mx-auto px-6 py-12 mt-section-gap border-t border-border">
-      <p class="text-meta text-muted font-sans">© 2026 Warm Tea & Honest Reviews. A calm reading space.</p>
+    <footer class="max-w-content mx-auto px-page-padding py-24 mt-section-gap border-t border-border">
+      <div class="flex flex-col items-center">
+        <p class="text-meta text-text-secondary font-sans tracking-widest uppercase mb-4">Warm Tea & Honest Reviews</p>
+        <p class="text-meta text-text-secondary font-sans text-center">© 2026. Warm tea and honest reviews.</p>
+      </div>
     </footer>
   </div>
 </template>

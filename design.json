@@ -1,0 +1,60 @@
+{
+  "name": "bookish-wayfarer-design",
+  "philosophy": "Content-first blog with editorial typography and warm relaxed feeling",
+  "colors": {
+    "background": "#FFFFFF",
+    "textPrimary": "#111111",
+    "textSecondary": "#666666",
+    "link": "#1a0dab",
+    "border": "#E5E5E5",
+    "accent": "#B96F51"
+  },
+  "typography": {
+    "fontFamily": {
+      "serif": ["Georgia", "Times New Roman", "serif"],
+      "sans": ["-apple-system", "BlinkMacSystemFont", "Segoe UI", "sans-serif"]
+    },
+    "fontSize": {
+      "body": {"size": "1rem", "lineHeight": "1.8"},
+      "meta": {"size": "0.875rem", "lineHeight": "1.6"},
+      "sectionTitle": {"size": "1.75rem", "lineHeight": "1.3"},
+      "pageTitle": {"size": "2.25rem", "lineHeight": "1.25"},
+      "siteTitle": {"size": "2.75rem", "lineHeight": "1.2"}
+    }
+  },
+  "layout": {
+    "maxWidth": {
+      "content": "720px",
+      "postDetail": "680px"
+    },
+    "spacing": {
+      "pagePadding": "2rem",
+      "sectionGap": "2.5rem",
+      "paragraphGap": "1.25em"
+    }
+  },
+  "components": {
+    "hero": {
+      "titleStyle": ["font-serif", "text-siteTitle", "text-center"],
+      "subtitleStyle": ["font-serif", "text-pageTitle", "text-center", "textSecondary"]
+    },
+    "postList": {
+      "format": "vertical-flow",
+      "itemSpacing": "1.5rem",
+      "imageStyle": {
+        "maxHeight": "280px",
+        "objectFit": "cover"
+      }
+    },
+    "postItem": {
+      "titleStyle": ["text-sectionTitle", "font-serif", "leading-tight"],
+      "metaStyle": ["text-meta", "text-textSecondary", "uppercase"],
+      "excerptStyle": ["text-body", "text-textPrimary"]
+    }
+  },
+  "rules": {
+    "moveFocusToContent": true,
+    "limitAccentUse": true,
+    "typographyOverComponents": true
+  }
+}

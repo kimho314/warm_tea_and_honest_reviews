@@ -1,34 +1,30 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import Home from '../pages/Home.vue'
-import ReviewList from '../pages/ReviewList.vue'
-import ReviewDetail from '../pages/ReviewDetail.vue'
-
-const routes = [
-  {
-    path: '/',
-    name: 'Home',
-    component: Home
-  },
-  {
-    path: '/reviews',
-    name: 'ReviewList',
-    component: ReviewList
-  },
-  {
-    path: '/reviews/:slug',
-    name: 'ReviewDetail',
-    component: ReviewDetail
-  },
-  {
-    path: '/about',
-    name: 'About',
-    component: () => import('../pages/About.vue')
-  }
-]
 
 const router = createRouter({
   history: createWebHistory(),
-  routes,
+  routes: [
+    {
+      path: '/',
+      name: 'home',
+      component: Home
+    },
+    {
+      path: '/reviews',
+      name: 'reviews',
+      component: () => import('../pages/Reviews.vue')
+    },
+    {
+      path: '/reviews/:slug',
+      name: 'review-detail',
+      component: () => import('../pages/ReviewDetail.vue')
+    },
+    {
+      path: '/about',
+      name: 'about',
+      component: () => import('../pages/About.vue')
+    }
+  ],
   scrollBehavior() {
     return { top: 0 }
   }

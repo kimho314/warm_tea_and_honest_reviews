@@ -1,82 +1,47 @@
 <template>
-  <article v-if="review" class="max-w-detail mx-auto px-6 pt-page-top pb-24">
-    <header class="mb-section-gap">
-      <div v-if="review.cover" class="mb-12 max-w-xs mx-auto overflow-hidden">
-        <img :src="review.cover" :alt="review.title" class="w-full h-auto object-cover" />
-      </div>
-      <h1 class="text-page font-serif mb-6 leading-tight text-center">{{ review.title }}</h1>
-
-      <!-- ABOUT BOOK / METADATA (styled like the screenshot) -->
-      <section class="mt-12">
-        <div class="flex items-center gap-4 mb-6">
-          <div class="h-px flex-1 bg-[#E7C7C7]"></div>
-          <h2 class="text-meta font-sans uppercase tracking-[0.25em] text-[#C9A2A2]">
-            About Book
-          </h2>
-          <div class="h-px flex-1 bg-[#E7C7C7]"></div>
-        </div>
-
-        <div class="border border-[#E7C7C7] px-6 py-8 md:px-10 md:py-10">
-          <div class="text-base font-sans">
-            <div class="grid grid-cols-[auto_1fr] gap-x-4 gap-y-6">
-              <div class="text-meta font-sans uppercase tracking-[0.22em] text-[#C9A2A2]">
-                Title
-              </div>
-              <div class="min-w-0">
-                <span class="font-sans text-text underline decoration-dotted underline-offset-4">
-                  {{ review.title }}
-                </span>
-              </div>
-
-              <div class="text-meta font-sans uppercase tracking-[0.22em] text-[#C9A2A2]">
-                Author
-              </div>
-              <div class="min-w-0">
-                <span class="font-sans text-text">{{ review.author }}</span>
-              </div>
-
-              <div class="text-meta font-sans uppercase tracking-[0.22em] text-[#C9A2A2]">
-                Genre
-              </div>
-              <div class="min-w-0">
-                <span class="font-sans text-[#C9A2A2]">
-                  {{ review.category || '—' }}
-                </span>
-              </div>
-
-              <div class="text-meta font-sans uppercase tracking-[0.22em] text-[#C9A2A2]">
-                Published
-              </div>
-              <div class="min-w-0">
-                <span class="font-sans text-text">{{ review.publishedAt }}</span>
-              </div>
-
-              <div class="text-meta font-sans uppercase tracking-[0.22em] text-[#C9A2A2]">
-                My rating
-              </div>
-              <div class="min-w-0">
-                <span class="inline-flex items-center font-sans text-text">
-                  <span class="text-[#C9A227] tracking-[0.22em]">
-                    {{ starString(review.rating) }}
-                  </span>
-                </span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-    </header>
-
-    <div v-if="loading" class="py-12 text-center text-meta text-muted font-sans">
-      Loading review...
+  <div class="max-w-post-detail mx-auto px-page-padding py-16">
+    <div v-if="loading" class="text-center py-24">
+      <p class="text-text-secondary italic">Opening the book...</p>
     </div>
 
-    <div v-else-if="error" class="py-12 text-center text-meta text-muted font-sans">
-      {{ error }}
+    <div v-else-if="review" class="animate-in fade-in duration-500">
+      <header class="mb-16 text-center">
+        <div class="aspect-[2/3] max-w-[300px] mx-auto mb-12 shadow-md border border-border/50">
+          <img :src="'/covers/' + review.cover" :alt="review.title" class="w-full h-full object-cover" />
+        </div>
+        
+        <div class="flex flex-center justify-center items-center space-x-2 text-meta text-text-secondary uppercase tracking-[0.2em] mb-4">
+          <span>{{ review.category }}</span>
+          <span>·</span>
+          <span>{{ formatDate(review.publishedAt) }}</span>
+        </div>
+        
+        <h1 class="text-page-title mb-6">{{ review.title }}</h1>
+        
+        <div class="text-text-secondary font-serif italic text-lg">
+          by {{ review.author }} · {{ renderRating(review.rating) }}
+        </div>
+      </header>
+
+      <div class="divider w-12 h-px bg-border mx-auto mb-16"></div>
+
+      <article class="prose prose-stone max-w-none prose-lg">
+        <div v-html="htmlContent" class="review-body"></div>
+      </article>
+
+      <footer class="mt-24 pt-12 border-t border-border">
+        <router-link to="/reviews" class="text-meta uppercase tracking-widest text-text-secondary hover:text-text-primary transition-colors flex items-center justify-center">
+          <span class="mr-2">←</span> Back to Archive
+        </router-link>
+      </footer>
     </div>
 
-    <div v-else class="prose font-sans text-base text-text" v-html="htmlContent"></div>
-  </article>
+    <div v-else class="text-center py-24">
+      <h2 class="text-section-title mb-4">Review Not Found</h2>
+      <p class="text-text-secondary mb-8">The book you're looking for isn't on our shelf.</p>
+      <router-link to="/reviews" class="text-link">Back to Archive</router-link>
+    </div>
+  </div>
 </template>
 
 <script setup lang="ts">
@@ -84,63 +49,80 @@ import { ref, onMounted } from 'vue'
 import { useRoute } from 'vue-router'
 import mammoth from 'mammoth'
 
-const route = useRoute()
-const review = ref<any>(null)
-const htmlContent = ref('')
-const loading = ref(true)
-const error = ref('')
-
-const starString = (rating: unknown) => {
-  const n = typeof rating === 'number' ? rating : Number(rating)
-  const safe = Number.isFinite(n) ? Math.max(0, Math.min(5, Math.round(n))) : 0
-  return '★'.repeat(safe) + '☆'.repeat(5 - safe)
+interface Review {
+  slug: string
+  title: string
+  author: string
+  rating: number
+  category: string
+  publishedAt: string
+  cover: string
+  file: string
 }
 
+const route = useRoute()
+const review = ref<Review | null>(null)
+const htmlContent = ref('')
+const loading = ref(true)
+
 onMounted(async () => {
-  const slug = String(route.params.slug ?? '')
-
+  const slug = route.params.slug as string
+  
   try {
-    const metaResponse = await fetch('/reviews.json')
-    if (!metaResponse.ok) throw new Error('Failed to load /reviews.json')
-
-    const allReviews = await metaResponse.json()
-    review.value = allReviews.find((r: any) => r.slug === slug)
-
-    if (!review.value) {
-      error.value = 'Review not found.'
-      return
+    // 1. Fetch metadata
+    const response = await fetch('/reviews.json')
+    if (response.ok) {
+      const reviews: Review[] = await response.json()
+      review.value = reviews.find(r => r.slug === slug) || null
+      
+      if (review.value) {
+        // 2. Fetch and convert .docx
+        const docxResponse = await fetch(`/reviews/${review.value.file}`)
+        if (docxResponse.ok) {
+          const arrayBuffer = await docxResponse.arrayBuffer()
+          const result = await mammoth.convertToHtml({ arrayBuffer })
+          htmlContent.value = result.value
+        }
+      }
     }
-
-    const docxPath = `/reviews/${review.value.file}.docx`
-    if (!docxPath) throw new Error('Missing "file" for this review in reviews.json')
-
-    const docxResponse = await fetch(docxPath)
-    if (!docxResponse.ok) throw new Error(`Failed to load ${docxPath}`)
-
-    const arrayBuffer = await docxResponse.arrayBuffer()
-
-    const result = await mammoth.convertToHtml({ arrayBuffer })
-    htmlContent.value = result.value
-  } catch (e) {
-    console.error('Error loading review:', e)
-    error.value = 'Failed to load review content.'
+  } catch (error) {
+    console.error('Failed to load review:', error)
   } finally {
     loading.value = false
   }
 })
+
+const formatDate = (dateString: string) => {
+  return new Date(dateString).toLocaleDateString('en-US', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric'
+  })
+}
+
+const renderRating = (rating: number) => {
+  return '★'.repeat(Math.floor(rating)) + '☆'.repeat(5 - Math.floor(rating))
+}
 </script>
 
-<style>
-/* Styling for mammoth-generated HTML */
-.prose p {
-  margin-bottom: 1.25em;
-  line-height: 1.8;
-}
-.prose h2 {
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: 2rem;
-  line-height: 1.3;
-  margin-top: 3.5rem;
+<style scoped>
+.review-body :deep(p) {
   margin-bottom: 1.5rem;
+  line-height: 1.8;
+  color: var(--color-text-primary);
+}
+
+.review-body :deep(h2), .review-body :deep(h3) {
+  font-family: var(--font-serif);
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.review-body :deep(em) {
+  font-style: italic;
+}
+
+.review-body :deep(strong) {
+  font-weight: 600;
 }
 </style>
