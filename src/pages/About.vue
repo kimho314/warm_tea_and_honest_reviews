@@ -1,7 +1,16 @@
 <template>
   <div class="max-w-content mx-auto px-page-padding py-16">
     <header class="mb-16 text-center">
-      <h2 class="text-page-title mb-4">About</h2>
+      <h2 class="text-page-title mb-8">About</h2>
+      
+      <div class="max-w-[400px] mx-auto mb-12 overflow-hidden bg-gray-50 border border-border/50 shadow-sm">
+        <img 
+          src="/images/AboutMe.png" 
+          alt="About Me" 
+          class="w-full h-auto object-cover opacity-100 transition-all duration-500"
+        />
+      </div>
+
       <div class="divider w-12 h-px bg-border mx-auto"></div>
     </header>
 
