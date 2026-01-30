@@ -31,15 +31,15 @@
 
       <footer class="mt-24 pt-12 border-t border-border">
         <router-link to="/reviews" class="text-meta uppercase tracking-widest text-text-secondary hover:text-text-primary transition-colors flex items-center justify-center">
-          <span class="mr-2">←</span> Back to Archive
+          <span class="mr-2">←</span> Back to Books
         </router-link>
       </footer>
     </div>
 
     <div v-else class="text-center py-24">
-      <h2 class="text-section-title mb-4">Review Not Found</h2>
+      <h2 class="text-section-title mb-4">Book Not Found</h2>
       <p class="text-text-secondary mb-8">The book you're looking for isn't on our shelf.</p>
-      <router-link to="/reviews" class="text-link">Back to Archive</router-link>
+      <router-link to="/reviews" class="text-link">Back to Books</router-link>
     </div>
   </div>
 </template>

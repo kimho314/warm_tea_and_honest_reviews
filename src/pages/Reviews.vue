@@ -1,7 +1,7 @@
 <template>
   <div class="max-w-content mx-auto px-page-padding py-16">
     <header class="mb-12">
-      <h2 class="text-page-title mb-4">All Reviews</h2>
+      <h2 class="text-page-title mb-4">All Books</h2>
       <p class="text-text-secondary">Explore the archive of literary reflections.</p>
     </header>
 
@@ -35,7 +35,7 @@
     </div>
 
     <div v-else class="text-center py-12 border border-dashed border-border">
-      <p class="text-text-secondary font-serif italic">No reviews found in the archive.</p>
+      <p class="text-text-secondary font-serif italic">No books found in the archive.</p>
     </div>
   </div>
 </template>

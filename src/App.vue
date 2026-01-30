@@ -9,7 +9,7 @@
           </div>
         </router-link>
         <nav class="flex space-x-8">
-          <router-link to="/reviews" class="text-xs text-text-secondary no-underline hover:text-text-primary uppercase tracking-[0.2em] transition-colors">Reviews</router-link>
+          <router-link to="/reviews" class="text-xs text-text-secondary no-underline hover:text-text-primary uppercase tracking-[0.2em] transition-colors">Books</router-link>
           <router-link to="/about" class="text-xs text-text-secondary no-underline hover:text-text-primary uppercase tracking-[0.2em] transition-colors">About</router-link>
         </nav>
       </div>

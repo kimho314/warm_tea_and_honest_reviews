@@ -7,7 +7,7 @@
 
     <section>
       <div class="flex justify-between items-baseline mb-8">
-        <h3 class="text-section-title">Recent Reviews</h3>
+        <h3 class="text-section-title">Recent Books</h3>
         <router-link to="/reviews" class="text-meta uppercase tracking-wider text-text-secondary hover:text-text-primary">View All</router-link>
       </div>
       
