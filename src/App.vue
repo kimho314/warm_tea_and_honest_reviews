@@ -2,13 +2,9 @@
   <div class="min-h-screen">
     <header class="border-b border-border">
       <div class="max-w-content mx-auto px-page-padding py-8 flex flex-col md:flex-row justify-between items-center gap-8">
-        <router-link to="/" class="no-underline group flex flex-col md:flex-row items-center gap-6">
-          <img src="/images/Logo.png" alt="Logo" class="w-32 md:w-40 h-auto object-contain" />
-          <div class="flex flex-col items-center md:items-start">
-            <span class="text-2xl font-serif tracking-tight group-hover:text-accent transition-colors">Warm Tea & Honest Reviews</span>
-          </div>
-        </router-link>
+        <img src="/images/Logo.png" alt="Logo" class="w-32 md:w-40 h-auto object-contain" />
         <nav class="flex space-x-8">
+          <router-link to="/" class="text-xs text-text-secondary no-underline hover:text-text-primary uppercase tracking-[0.2em] transition-colors">HOME</router-link>
           <router-link to="/reviews" class="text-xs text-text-secondary no-underline hover:text-text-primary uppercase tracking-[0.2em] transition-colors">Books</router-link>
           <router-link to="/about" class="text-xs text-text-secondary no-underline hover:text-text-primary uppercase tracking-[0.2em] transition-colors">About</router-link>
         </nav>
