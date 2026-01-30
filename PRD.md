@@ -1,15 +1,15 @@
 # Product Requirements Document (PRD)
 
-## Book Review Website (Static, Word-based)
+## Warm Tea & Honest Reviews (Static, Word-based)
 
 ---
 
 ## 1. Product Overview
 
-This document defines the Product Requirements for a **static book review website with no backend**.
+This document defines the Product Requirements for **Bookish Wayfarer**, a static book review website with no backend.
 Review content is written in **Microsoft Word (.docx)** files, metadata is managed via **JSON**, and images are handled as **separate static assets**.
 
-The product aims to deliver a calm, text-focused reading experience inspired by the reference site, while remaining simple to maintain and easy to extend in the future.
+The product aims to deliver a calm, text-focused reading experience inspired by the "Bookish Wayfarer" design philosophy, while remaining simple to maintain and easy to extend in the future.
 
 ---
 
@@ -53,10 +53,9 @@ The product aims to deliver a calm, text-focused reading experience inspired by 
 
 ```
 /                → Home
-/reviews         → All Reviews
+/reviews         → All Reviews (Books)
 /reviews/:slug   → Review Detail
-/categories/:id  → Category Archive (Optional)
-/about           → About (Optional)
+/about           → About
 ```
 
 ---
@@ -69,9 +68,15 @@ The product aims to deliver a calm, text-focused reading experience inspired by 
 | ------------ | ------------------------ |
 | Word (.docx) | Review body content only |
 | JSON         | All metadata             |
-| Images       | Cover images             |
+| Images       | Cover images & Assets    |
 
 Word documents must **not** contain any metadata.
+
+### 6.2 Design Philosophy: Bookish Wayfarer
+* Content-first blog with editorial typography.
+* Warm and relaxed feeling.
+* Move focus to content by minimizing UI distractions.
+* Limit accent colors and prioritize typography over complex components.
 
 ---
 
@@ -83,6 +88,7 @@ Word documents must **not** contain any metadata.
 public/
  ├─ reviews/        # Review bodies (.docx)
  ├─ covers/         # Cover images (.jpg/.png)
+ ├─ images/         # Site assets (Logo, About image)
  └─ reviews.json    # Metadata
 ```
 
@@ -227,9 +233,9 @@ Category
 
 * PRD completed
 * Architecture finalized
-* Ready for implementation
+* Design Guide (design.json) implemented
+* UI Tone & Typography system implemented
+* About Page with images added
+* Ready for content population
 
 ---
-
-## 16. Tech Stack & Architecture
-![Tech Stack & Architecture](tech_stack&architecture.md)

@@ -1,13 +1,13 @@
-# Warm Tea & Honest Reviews
+# Bookish Wayfarer
 
-This project is a personal book review website that allows you to statically publish book reviews written in Microsoft Word (.docx) files. It operates entirely as a static site without a backend, providing a calm and literary UI designed for focused reading.
+This project is a personal book review website that allows you to statically publish book reviews written in Microsoft Word (.docx) files. It operates entirely as a static site without a backend, providing a calm and editorial UI designed for focused reading, inspired by the "Bookish Wayfarer" design philosophy.
 
 ## Key Features
 
 - **Static Architecture**: Based on Vue 3 and Vite, enabling static hosting on platforms like GitHub Pages or Vercel without a dedicated backend.
 - **Word Document Integration**: Uses `mammoth.js` to convert `.docx` file content into HTML in real-time.
-- **Typography-First Design**: A print-inspired reading environment using a combination of serif and sans-serif fonts, generous whitespace, and a warm off-white background (#FAF9F7).
-- **Simple Content Management**: Publish new reviews simply by adding metadata to the `public/reviews.json` file.
+- **Editorial Typography**: A print-inspired reading environment using a combination of serif and sans-serif fonts, generous whitespace, and a clean white background (#FFFFFF).
+- **Simple Content Management**: Publish new reviews simply by adding metadata to the `public/reviews.json` file and placing assets in corresponding folders.
 - **Responsive Layout**: Maintains optimal readability across both desktop and mobile devices.
 
 ## Tech Stack
