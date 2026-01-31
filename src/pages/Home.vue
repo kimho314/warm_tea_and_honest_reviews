@@ -1,52 +1,68 @@
 <template>
-  <div class="max-w-content mx-auto px-page-padding py-16">
-    <section class="text-center mb-24 py-12">
-      <h2 class="text-site-title mb-6">A Quiet Corner for Literary Reflection</h2>
-      <p class="text-text-secondary italic text-lg max-w-md mx-auto leading-relaxed">Thoughtful reviews of the books that linger in the mind long after the last page is turned.</p>
+  <div class="home">
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="hero-content">
+        <h1>Warm Tea & Honest Reviews</h1>
+        <p>A calm, text-focused reading experience inspired by books, travel, and lifestyle.</p>
+        <div class="divider"></div>
+      </div>
     </section>
 
-    <section>
-      <div class="flex justify-between items-baseline mb-8">
-        <h3 class="text-section-title">Recent Books</h3>
-        <router-link to="/reviews" class="text-meta uppercase tracking-wider text-text-secondary hover:text-text-primary">View All</router-link>
-      </div>
-      
-      <div v-if="loading" class="text-center py-12">
-        <p class="text-text-secondary">Brewing some tea...</p>
-      </div>
-      
-      <div v-else-if="recentReviews.length > 0" class="space-y-12">
-        <article v-for="review in recentReviews" :key="review.slug" class="group">
-          <router-link :to="'/reviews/' + review.slug" class="block no-underline">
-            <div class="aspect-[2/3] max-w-[240px] mx-auto mb-8 overflow-hidden bg-gray-50 border border-border/50 shadow-sm">
-              <img 
-                :src="'/covers/' + review.cover" 
-                :alt="review.title" 
-                class="w-full h-full object-cover grayscale opacity-90 transition-all duration-500 group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-105"
-              />
-            </div>
-            <header>
-              <div class="flex items-center space-x-2 text-meta text-text-secondary uppercase tracking-widest mb-2">
-                <span>{{ review.category }}</span>
-                <span>·</span>
-                <span>{{ formatDate(review.publishedAt) }}</span>
-              </div>
-              <h4 class="text-section-title group-hover:text-accent transition-colors mb-2">{{ review.title }}</h4>
-              <p class="text-text-secondary line-clamp-2 leading-relaxed">{{ review.excerpt }}</p>
-            </header>
-          </router-link>
+    <!-- Recent Reviews Section -->
+    <section class="latest-posts">
+      <h2>Recent Reviews</h2>
+      <div class="divider"></div>
+      <div class="posts-grid">
+        <article v-for="review in recentReviews" :key="review.slug" class="post-card">
+          <div class="post-image">
+            <img :src="'/covers/' + review.cover" :alt="review.title">
+          </div>
+          <div class="post-content">
+            <time>{{ review.publishedAt }}</time>
+            <h3>
+              <router-link :to="'/reviews/' + review.slug">{{ review.title }}</router-link>
+            </h3>
+            <p>{{ review.excerpt }}</p>
+            <router-link :to="'/reviews/' + review.slug" class="read-more">Read More →</router-link>
+          </div>
         </article>
       </div>
+      <div class="view-all">
+        <router-link to="/reviews" class="btn-view-all">View all reviews →</router-link>
+      </div>
+    </section>
 
-      <div v-else class="text-center py-12 border border-dashed border-border">
-        <p class="text-text-secondary font-serif italic">The bookshelf is currently empty.</p>
+    <!-- Categories Section -->
+    <section class="browse-topics">
+      <h2>Categories</h2>
+      <div class="divider"></div>
+      <div class="topics-grid">
+        <div class="topic-card">
+          <router-link to="/reviews?category=Fiction">
+            <img src="https://images.unsplash.com/photo-1512820790803-83ca734da794?w=600&h=400&fit=crop" alt="Fiction">
+            <h3>Fiction</h3>
+          </router-link>
+        </div>
+        <div class="topic-card">
+          <router-link to="/reviews?category=Travel">
+            <img src="https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=600&h=400&fit=crop" alt="Travel">
+            <h3>Travel</h3>
+          </router-link>
+        </div>
+        <div class="topic-card">
+          <router-link to="/reviews?category=Lifestyle">
+            <img src="https://images.unsplash.com/photo-1513694203232-719a280e022f?w=600&h=400&fit=crop" alt="Lifestyle">
+            <h3>Lifestyle</h3>
+          </router-link>
+        </div>
       </div>
     </section>
   </div>
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted, computed } from 'vue'
+import { ref, onMounted } from 'vue'
 
 interface Review {
   slug: string
@@ -55,37 +71,44 @@ interface Review {
   rating: number
   category: string
   publishedAt: string
+  file: string
   cover: string
   excerpt: string
 }
 
-const reviews = ref<Review[]>([])
-const loading = ref(true)
-
-const recentReviews = computed(() => {
-  return [...reviews.value]
-    .sort((a, b) => new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime())
-    .slice(0, 5)
-})
+const recentReviews = ref<Review[]>([])
 
 onMounted(async () => {
   try {
     const response = await fetch('/reviews.json')
-    if (response.ok) {
-      reviews.value = await response.json()
-    }
+    const data = await response.json()
+    // Sort by date and take latest 6
+    recentReviews.value = data
+      .sort((a: Review, b: Review) => new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime())
+      .slice(0, 6)
   } catch (error) {
-    console.error('Failed to fetch reviews:', error)
-  } finally {
-    loading.value = false
+    console.error('Error fetching reviews:', error)
   }
 })
-
-const formatDate = (dateString: string) => {
-  return new Date(dateString).toLocaleDateString('en-US', {
-    year: 'numeric',
-    month: 'long',
-    day: 'numeric'
-  })
-}
 </script>
+
+<style scoped>
+.hero {
+  padding: 100px 20px;
+  text-align: center;
+  background-color: #fcfcfc;
+}
+
+.hero h1 {
+  font-size: 48px;
+  font-weight: 400;
+  margin-bottom: 20px;
+}
+
+.hero p {
+  font-size: 18px;
+  color: #666;
+  max-width: 600px;
+  margin: 0 auto 30px;
+}
+</style>

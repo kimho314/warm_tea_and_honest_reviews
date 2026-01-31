@@ -1,42 +1,57 @@
 <template>
-  <div class="max-w-content mx-auto px-page-padding py-16">
-    <header class="mb-16 text-center">
-      <h2 class="text-page-title mb-8">About</h2>
-      
-      <div class="max-w-[400px] mx-auto mb-12 overflow-hidden bg-gray-50 border border-border/50 shadow-sm">
-        <img 
-          src="/images/AboutMe.png" 
-          alt="About Me" 
-          class="w-full h-auto object-cover opacity-100 transition-all duration-500"
-        />
+  <div class="about-page">
+    <section class="introduction">
+      <div class="intro-container">
+        <div class="intro-image">
+          <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&h=500&fit=crop" alt="Profile Image">
+        </div>
+        <div class="intro-text">
+          <p class="intro-subtitle">Hi there, I'm Julia.</p>
+          <h2>Welcome to Warm Tea & Honest Reviews, my book, travel, & lifestyle blog.</h2>
+          <p>This site is a curated archive of my thoughts on literature, journeys around the world, and the little things that make life beautiful. I believe in the power of slow reading and honest reflection.</p>
+        </div>
       </div>
+    </section>
 
-      <div class="divider w-12 h-px bg-border mx-auto"></div>
-    </header>
-
-    <div class="prose prose-stone mx-auto text-lg leading-relaxed text-text-primary">
-      <p class="mb-8">
-        Welcome to <strong class="font-serif">Bookish Wayfarer</strong>, a quiet corner of the internet dedicated to the art of reading and reflection.
-      </p>
-      
-      <p class="mb-8">
-        This project was born out of a desire for a simpler, more focused reading experience. In an age of endless scrolling and fleeting content, we believe in the enduring value of the written word and the depth of a well-considered review.
-      </p>
-
-      <h3 class="text-section-title mt-12 mb-6">Our Philosophy</h3>
-      <ul class="list-disc pl-5 space-y-4 mb-12">
-        <li><strong>Quality over Quantity:</strong> We focus on thoughtful analysis rather than rapid-fire updates.</li>
-        <li><strong>Typography-First:</strong> Design that respects the reader and the text.</li>
-        <li><strong>Static & Simple:</strong> A lean, efficient platform built for longevity and ease of use.</li>
-      </ul>
-
-      <p class="italic text-text-secondary">
-        "A book is a heart that only beats in the chest of another."
-      </p>
-    </div>
+    <section class="content-section">
+      <div class="divider"></div>
+      <div class="about-content">
+        <h3>My Story</h3>
+        <p>Bookish Wayfarer started as a simple notebook where I kept track of every book I read. Over time, it evolved into this digital space where I can share those reviews with fellow bibliophiles and travelers.</p>
+        <p>Every review you find here is written with care, focusing on the emotional resonance of the text rather than just a plot summary. Whether it's a historical romance or a gritty thriller, I aim to provide an honest perspective that helps you find your next favorite read.</p>
+      </div>
+    </section>
   </div>
 </template>
 
-<script setup lang="ts">
-// No logic needed for now
-</script>
+<style scoped>
+.about-page {
+  padding: 40px 0;
+}
+
+.content-section {
+  max-width: 800px;
+  margin: 60px auto;
+  padding: 0 20px;
+  text-align: center;
+}
+
+.about-content {
+  margin-top: 40px;
+  font-size: 18px;
+  line-height: 1.8;
+  color: #555;
+  text-align: left;
+}
+
+.about-content h3 {
+  font-size: 28px;
+  font-weight: 400;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.about-content p {
+  margin-bottom: 20px;
+}
+</style>

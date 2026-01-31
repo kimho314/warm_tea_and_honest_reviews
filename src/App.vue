@@ -1,33 +1,42 @@
 <template>
-  <div class="min-h-screen">
-    <header class="border-b border-border">
-      <div class="max-w-content mx-auto px-page-padding py-8 flex flex-col md:flex-row justify-between items-center gap-8">
-        <img src="/images/Logo.png" alt="Logo" class="w-32 md:w-40 h-auto object-contain" />
-        <nav class="flex space-x-8">
-          <router-link to="/" class="text-xs text-text-secondary no-underline hover:text-text-primary uppercase tracking-[0.2em] transition-colors">HOME</router-link>
-          <router-link to="/reviews" class="text-xs text-text-secondary no-underline hover:text-text-primary uppercase tracking-[0.2em] transition-colors">Books</router-link>
-          <router-link to="/about" class="text-xs text-text-secondary no-underline hover:text-text-primary uppercase tracking-[0.2em] transition-colors">About</router-link>
-        </nav>
+  <header>
+    <nav class="navbar">
+      <div class="nav-container">
+        <div class="logo">
+          <router-link to="/">Warm Tea & Honest Reviews</router-link>
+        </div>
+        <ul class="nav-menu">
+          <li><router-link to="/">Home</router-link></li>
+          <li><router-link to="/about">About</router-link></li>
+          <li><router-link to="/reviews">Books</router-link></li>
+        </ul>
+        <div class="search-icon">
+          <a href="#">⌕</a>
+        </div>
       </div>
-    </header>
+    </nav>
+  </header>
 
-    <main>
-      <router-view></router-view>
-    </main>
+  <main>
+    <router-view></router-view>
+  </main>
 
-    <footer class="max-w-content mx-auto px-page-padding py-24 mt-section-gap border-t border-border">
-      <div class="flex flex-col items-center">
-        <p class="text-meta text-text-secondary font-sans tracking-widest uppercase mb-4">Warm Tea & Honest Reviews</p>
-        <p class="text-meta text-text-secondary font-sans text-center">© 2026. Warm tea and honest reviews.</p>
+  <footer>
+    <div class="footer-content">
+      <p>&copy; {{ currentYear }} Warm Tea & Honest Reviews | All Rights Reserved</p>
+      <div class="footer-links">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Disclaimer</a>
+        <a href="#">Terms and Conditions</a>
       </div>
-    </footer>
-  </div>
+    </div>
+  </footer>
 </template>
 
 <script setup lang="ts">
-// Main App component
+const currentYear = new Date().getFullYear()
 </script>
 
 <style>
-/* Global styles already handled in main.css */
+/* Global styles can be imported here or handled in main.css */
 </style>
