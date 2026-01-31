@@ -34,30 +34,30 @@
     </section>
 
     <!-- Categories Section -->
-    <section class="browse-topics">
-      <h2>Categories</h2>
-      <div class="divider"></div>
-      <div class="topics-grid">
-        <div class="topic-card">
-          <router-link to="/reviews?category=Fiction">
-            <img src="https://images.unsplash.com/photo-1512820790803-83ca734da794?w=600&h=400&fit=crop" alt="Fiction">
-            <h3>Fiction</h3>
-          </router-link>
-        </div>
-        <div class="topic-card">
-          <router-link to="/reviews?category=Travel">
-            <img src="https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=600&h=400&fit=crop" alt="Travel">
-            <h3>Travel</h3>
-          </router-link>
-        </div>
-        <div class="topic-card">
-          <router-link to="/reviews?category=Lifestyle">
-            <img src="https://images.unsplash.com/photo-1513694203232-719a280e022f?w=600&h=400&fit=crop" alt="Lifestyle">
-            <h3>Lifestyle</h3>
-          </router-link>
-        </div>
-      </div>
-    </section>
+<!--    <section class="browse-topics">-->
+<!--      <h2>Categories</h2>-->
+<!--      <div class="divider"></div>-->
+<!--      <div class="topics-grid">-->
+<!--        <div class="topic-card">-->
+<!--          <router-link to="/reviews?category=Fiction">-->
+<!--            <img src="https://images.unsplash.com/photo-1512820790803-83ca734da794?w=600&h=400&fit=crop" alt="Fiction">-->
+<!--            <h3>Fiction</h3>-->
+<!--          </router-link>-->
+<!--        </div>-->
+<!--        <div class="topic-card">-->
+<!--          <router-link to="/reviews?category=Travel">-->
+<!--            <img src="https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=600&h=400&fit=crop" alt="Travel">-->
+<!--            <h3>Travel</h3>-->
+<!--          </router-link>-->
+<!--        </div>-->
+<!--        <div class="topic-card">-->
+<!--          <router-link to="/reviews?category=Lifestyle">-->
+<!--            <img src="https://images.unsplash.com/photo-1513694203232-719a280e022f?w=600&h=400&fit=crop" alt="Lifestyle">-->
+<!--            <h3>Lifestyle</h3>-->
+<!--          </router-link>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </section>-->
   </div>
 </template>
 
