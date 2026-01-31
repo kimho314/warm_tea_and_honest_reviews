@@ -3,7 +3,9 @@
     <nav class="navbar">
       <div class="nav-container">
         <div class="logo">
-          <router-link to="/">Warm Tea & Honest Reviews</router-link>
+          <router-link to="/">
+            <img src="/images/Logo.png" alt="Warm Tea & Honest Reviews" class="logo-img">
+          </router-link>
         </div>
         <ul class="nav-menu">
           <li><router-link to="/">Home</router-link></li>

@@ -25,7 +25,8 @@
       "h3": "28px",
       "postTitle": "22px",
       "navLink": "14px",
-      "logo": "28px"
+      "logo": "28px",
+      "logoImgMaxHeight": "95px"
     },
     "lineHeight": {
       "body": "1.6",
