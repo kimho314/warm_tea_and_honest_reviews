@@ -12,9 +12,6 @@
           <li><router-link to="/about">About</router-link></li>
           <li><router-link to="/reviews">Books</router-link></li>
         </ul>
-        <div class="search-icon">
-          <a href="#">⌕</a>
-        </div>
       </div>
     </nav>
   </header>
