@@ -3,7 +3,7 @@
     <section class="introduction">
       <div class="intro-container">
         <div class="intro-image">
-          <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&h=500&fit=crop" alt="Profile Image">
+          <img src="/images/AboutMe.png" alt="Profile Image">
         </div>
         <div class="intro-text">
           <p class="intro-subtitle">Hi there, I'm Julia.</p>
