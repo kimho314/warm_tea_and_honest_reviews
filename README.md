@@ -1,4 +1,4 @@
-# Bookish Wayfarer
+# Warm Tea & Honest Reviews
 
 This project is a personal book review website that allows you to statically publish book reviews written in Microsoft Word (.docx) files. It operates entirely as a static site without a backend, providing a calm and editorial UI designed for focused reading, inspired by the "Bookish Wayfarer" design philosophy.
 
