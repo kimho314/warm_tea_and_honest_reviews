@@ -54,6 +54,8 @@
     },
     "postCard": {
       "imageHeight": "300px",
+      "imageObjectFit": "contain",
+      "imageBackground": "#f5f5f5",
       "transition": "0.3s ease",
       "hoverEffect": "translateY(-5px) + shadow"
     },
