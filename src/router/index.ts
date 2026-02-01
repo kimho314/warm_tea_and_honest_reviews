@@ -3,6 +3,8 @@ import Home from '../pages/Home.vue'
 import ReviewList from '../pages/ReviewList.vue'
 import ReviewDetail from '../pages/ReviewDetail.vue'
 import About from '../pages/About.vue'
+import PrivacyPolicy from '../pages/PrivacyPolicy.vue'
+import TermsAndConditions from '../pages/TermsAndConditions.vue'
 
 const routes = [
   {
@@ -24,6 +26,16 @@ const routes = [
     path: '/about',
     name: 'About',
     component: About
+  },
+  {
+    path: '/privacy',
+    name: 'PrivacyPolicy',
+    component: PrivacyPolicy
+  },
+  {
+    path: '/terms',
+    name: 'TermsAndConditions',
+    component: TermsAndConditions
   }
 ]
 
