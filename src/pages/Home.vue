@@ -3,8 +3,13 @@
     <!-- Hero Section -->
     <section class="hero">
       <div class="hero-content">
-        <h1>Warm Tea & Honest Reviews</h1>
-        <p>A calm, text-focused reading experience inspired by books, travel, and lifestyle.</p>
+        <h1>Welcome to Warm Tea & Honest Reviews!</h1>
+        <p>I’ve loved reading for as long as I can remember, and books have always been a big part of my life. This little space exists because I enjoy reading and chatting about the stories that stay with me.
+          I’m not here to break books down into perfect pros and cons — and I’m definitely not a harsh critic. I read based on my mood, my feelings, and my personal taste, and I share my thoughts the same way. No rude comments, no strong negativity — just honest, friendly opinions.
+          You’ll mostly find comforting reads here: emotional stories, gentle romances, and books that feel like a warm hug. I don’t review smut-heavy books or stories full of extreme violence. Think cozy, calm, and feel-good vibes.
+          Good vibes are always welcome, kind comments are encouraged, and friendly discussions are appreciated. Just keep in mind — I write these reviews for myself first, simply because I enjoy it, not to impress anyone.
+          So grab a cuppa, get comfy, and let’s have some chitty-chatty, honest review time ☕📖
+        </p>
         <div class="divider"></div>
       </div>
     </section>
