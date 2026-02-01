@@ -25,7 +25,7 @@
       <p>&copy; {{ currentYear }} Warm Tea & Honest Reviews | All Rights Reserved</p>
       <div class="footer-links">
         <a href="#">Privacy Policy</a>
-        <a href="#">Disclaimer</a>
+<!--        <a href="#">Disclaimer</a>-->
         <a href="#">Terms and Conditions</a>
       </div>
     </div>
