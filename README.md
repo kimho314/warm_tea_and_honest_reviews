@@ -6,16 +6,17 @@ This project is a personal book review website that allows you to statically pub
 
 - **Static Architecture**: Based on Vue 3 and Vite, enabling static hosting on platforms like GitHub Pages or Vercel without a dedicated backend.
 - **Word Document Integration**: Uses `mammoth.js` to convert `.docx` file content into HTML in real-time.
-- **Editorial Typography**: A print-inspired reading environment using a combination of serif and sans-serif fonts, generous whitespace, and a clean white background (#FFFFFF).
+- **Editorial Typography**: A print-inspired reading environment using a combination of serif and sans-serif fonts, generous whitespace, and a clean white background.
+- **New Page Additions**: Includes 'About', 'Privacy Policy', and 'Terms and Conditions' pages for a complete blog experience.
 - **Simple Content Management**: Publish new reviews simply by adding metadata to the `public/reviews.json` file and placing assets in corresponding folders.
-- **Responsive Layout**: Maintains optimal readability across both desktop and mobile devices.
+- **Responsive Layout**: Maintains optimal readability across desktop, tablet, and mobile devices.
 
 ## Tech Stack
 
 - **Framework**: Vue 3 (Composition API)
 - **Build Tool**: Vite
 - **Routing**: Vue Router
-- **Styling**: Tailwind CSS v4
+- **Styling**: Tailwind CSS v4 / CSS3
 - **Parsing**: mammoth.js (DOCX to HTML conversion)
 
 ## Project Structure
@@ -24,12 +25,12 @@ This project is a personal book review website that allows you to statically pub
 public/
  ├─ reviews/        # Review body files (.docx)
  ├─ covers/         # Book cover images
+ ├─ images/         # Site assets (Logo, Profile image)
  └─ reviews.json    # Review metadata
 src/
- ├─ components/     # Reusable UI components (e.g., BookCard)
- ├─ pages/          # Page components (Home, List, Detail)
+ ├─ pages/          # Page components (Home, ReviewList, ReviewDetail, About, PrivacyPolicy, TermsAndConditions)
  ├─ router/         # Router configuration
- └─ styles/         # Global styles and Tailwind configuration
+ └─ styles/         # Global styles (main.css)
 ```
 
 ## Getting Started
