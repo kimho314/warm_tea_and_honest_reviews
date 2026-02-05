@@ -1,5 +1,19 @@
 [
   {
+    "slug": "Starry Night",
+    "title": "Starry Night",
+    "author": "Debbie Macomber",
+    "rating":3.5,
+    "page": 256,
+    "language": "English",
+    "category": "Adult, Romance, Fiction, Chrismas",
+    "publishedAt": "2013-10-08",
+    "createdAt": "2026-01-01",
+    "file": "StarryNight.docx",
+    "cover": "StarryNight.jpg",
+    "excerpt": ""
+  },
+  {
     "slug": "ilkbahar-ruyasi",
     "title": "İlkbahar Rüyası",
     "author": "Kristin Hannah",
@@ -8,22 +22,10 @@
     "language": "English",
     "category": "Fiction, Romance, Family, Second Chances",
     "publishedAt": "1996-10-30",
+    "createdAt": "2026-01-02",
     "file": "IlkbaharRuyasi.docx",
     "cover": "IlkbaharRuyasi.jpg",
     "excerpt": "A touching story of second chances and the enduring power of home."
-  },
-  {
-    "slug": "Reverie ",
-    "title": "Reverie ",
-    "author": "Drew Taylor",
-    "rating":4,
-    "page": 408,
-    "language": "English",
-    "category": "Adult, Clean Romance, Christian Romance, Fiction",
-    "publishedAt": "1996-10-30",
-    "file": "Reverie.docx",
-    "cover": "Reverie.jpg",
-    "excerpt": "It was as if God whispered, ‘She’s the one’. I finally understood the phrase ‘when you know you know."
   },
   {
     "slug": "Romantik Komediciler",
@@ -34,21 +36,23 @@
     "language": "English",
     "category": "Adult, Clean Romance, Fiction, Forced Proximity",
     "publishedAt": "2024-06-11",
+    "createdAt": "2026-01-03",
     "file": "RomantikKomediciler.docx",
     "cover": "RomantikKomediciler.jpg",
     "excerpt": ""
   },
   {
-    "slug": "Starry Night",
-    "title": "Starry Night",
-    "author": "Debbie Macomber",
-    "rating":3.5,
-    "page": 256,
+    "slug": "Reverie ",
+    "title": "Reverie ",
+    "author": "Drew Taylor",
+    "rating":4,
+    "page": 408,
     "language": "English",
-    "category": "Adult, Romance, Fiction, Chrismas",
-    "publishedAt": "2013-10-08",
-    "file": "StarryNight.docx",
-    "cover": "StarryNight.jpg",
-    "excerpt": ""
+    "category": "Adult, Clean Romance, Christian Romance, Fiction",
+    "publishedAt": "1996-10-30",
+    "createdAt": "2026-01-04",
+    "file": "Reverie.docx",
+    "cover": "Reverie.jpg",
+    "excerpt": "It was as if God whispered, ‘She’s the one’. I finally understood the phrase ‘when you know you know."
   }
 ]

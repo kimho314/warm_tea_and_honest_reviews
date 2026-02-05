@@ -24,7 +24,7 @@
           </div>
           <div class="post-content">
             <div class="post-meta-inline">
-              <time>{{ review.publishedAt }}</time>
+              <time>{{ review.createdAt }}</time>
               <StarRating :rating="review.rating" />
             </div>
             <h3>
@@ -55,6 +55,7 @@ interface Review {
   rating: number
   category: string
   publishedAt: string
+  createdAt: string
   file: string
   cover: string
   excerpt: string
@@ -79,7 +80,7 @@ onMounted(async () => {
     const response = await fetch('/reviews.json')
     const data = await response.json()
     allReviews.value = data.sort((a: Review, b: Review) => 
-      new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime()
+      new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
     )
     
     // Set initial category from query param

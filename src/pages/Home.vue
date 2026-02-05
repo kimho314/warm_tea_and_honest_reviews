@@ -80,6 +80,7 @@ interface Review {
   rating: number
   category: string
   publishedAt: string
+  createdAt: string
   file: string
   cover: string
   excerpt: string
@@ -91,9 +92,9 @@ onMounted(async () => {
   try {
     const response = await fetch('/reviews.json')
     const data = await response.json()
-    // Sort by date and take latest 6
+    // Sort by createdAt and take latest 6
     recentReviews.value = data
-      .sort((a: Review, b: Review) => new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime())
+      .sort((a: Review, b: Review) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime())
       .slice(0, 6)
   } catch (error) {
     console.error('Error fetching reviews:', error)
