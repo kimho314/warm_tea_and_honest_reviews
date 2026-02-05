@@ -21,6 +21,10 @@
 
     <div class="divider"></div>
 
+    <div v-if="review.excerpt" class="review-excerpt">
+      <p>{{ review.excerpt }}</p>
+    </div>
+
     <article class="review-body">
       <div v-if="loading" class="loading">Loading review content...</div>
       <div v-else-if="error" class="error">{{ error }}</div>
@@ -143,6 +147,16 @@ async function loadWordContent(fileName: string) {
 
 .separator {
   color: #ddd;
+}
+
+.review-excerpt {
+  margin: 40px auto;
+  font-style: italic;
+  font-size: 20px;
+  color: #555;
+  text-align: center;
+  max-width: 700px;
+  line-height: 1.6;
 }
 
 .review-body {

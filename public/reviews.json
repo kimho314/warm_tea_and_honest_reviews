@@ -1,13 +1,54 @@
 [
   {
     "slug": "ilkbahar-ruyasi",
-    "title": "İlkbahar Rüyası (Home Again)",
+    "title": "İlkbahar Rüyası",
     "author": "Kristin Hannah",
     "rating": 4,
-    "category": "Fiction",
-    "publishedAt": "2026-01-20",
+    "page": 448,
+    "language": "English",
+    "category": "Fiction, Romance, Family, Second Chances",
+    "publishedAt": "1996-10-30",
     "file": "IlkbaharRuyasi.docx",
-    "cover": "İlkbahar Rüyası.jpg",
+    "cover": "IlkbaharRuyasi.jpg",
     "excerpt": "A touching story of second chances and the enduring power of home."
+  },
+  {
+    "slug": "Reverie ",
+    "title": "Reverie ",
+    "author": "Drew Taylor",
+    "rating":4,
+    "page": 408,
+    "language": "English",
+    "category": "Adult, Clean Romance, Christian Romance, Fiction",
+    "publishedAt": "1996-10-30",
+    "file": "Reverie.docx",
+    "cover": "Reverie.jpg",
+    "excerpt": "It was as if God whispered, ‘She’s the one’. I finally understood the phrase ‘when you know you know."
+  },
+  {
+    "slug": "Romantik Komediciler",
+    "title": "Romantik Komediciler",
+    "author": "Katherine Center",
+    "rating":4,
+    "page": 336,
+    "language": "English",
+    "category": "Adult, Clean Romance, Fiction, Forced Proximity",
+    "publishedAt": "2024-06-11",
+    "file": "RomantikKomediciler.docx",
+    "cover": "RomantikKomediciler.jpg",
+    "excerpt": ""
+  },
+  {
+    "slug": "Starry Night",
+    "title": "Starry Night",
+    "author": "Debbie Macomber",
+    "rating":3.5,
+    "page": 256,
+    "language": "English",
+    "category": "Adult, Romance, Fiction, Chrismas",
+    "publishedAt": "2013-10-08",
+    "file": "StarryNight.docx",
+    "cover": "StarryNight.jpg",
+    "excerpt": ""
   }
 ]
