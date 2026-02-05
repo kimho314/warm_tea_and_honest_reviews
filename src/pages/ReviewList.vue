@@ -23,7 +23,10 @@
             <img :src="'/covers/' + review.cover" :alt="review.title">
           </div>
           <div class="post-content">
-            <time>{{ review.publishedAt }}</time>
+            <div class="post-meta-inline">
+              <time>{{ review.publishedAt }}</time>
+              <StarRating :rating="review.rating" />
+            </div>
             <h3>
               <router-link :to="'/reviews/' + review.slug">{{ review.title }}</router-link>
             </h3>
@@ -43,6 +46,7 @@
 <script setup lang="ts">
 import { ref, computed, onMounted, watch } from 'vue'
 import { useRoute } from 'vue-router'
+import StarRating from '../components/StarRating.vue'
 
 interface Review {
   slug: string

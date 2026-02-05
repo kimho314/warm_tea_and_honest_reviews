@@ -57,7 +57,8 @@
       "imageObjectFit": "contain",
       "imageBackground": "#f5f5f5",
       "transition": "0.3s ease",
-      "hoverEffect": "translateY(-5px) + shadow"
+      "hoverEffect": "translateY(-5px) + shadow",
+      "ratingColor": "#ffc107"
     },
     "topicCard": {
       "imageHeight": "400px",

@@ -11,7 +11,7 @@
           <div class="meta-details">
             <span class="author">By {{ review.author }}</span>
             <span class="separator">|</span>
-            <span class="rating">Rating: {{ review.rating }}/5</span>
+            <span class="rating"><StarRating :rating="review.rating" /></span>
             <span class="separator">|</span>
             <time>{{ review.publishedAt }}</time>
           </div>
@@ -41,6 +41,7 @@
 import { ref, onMounted } from 'vue'
 import { useRoute } from 'vue-router'
 import mammoth from 'mammoth'
+import StarRating from '../components/StarRating.vue'
 
 interface Review {
   slug: string
