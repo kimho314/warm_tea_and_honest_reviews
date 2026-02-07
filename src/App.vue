@@ -7,10 +7,17 @@
             <img src="/images/Logo.png" alt="Warm Tea & Honest Reviews" class="logo-img">
           </router-link>
         </div>
-        <ul class="nav-menu">
-          <li><router-link to="/">Home</router-link></li>
-          <li><router-link to="/about">About</router-link></li>
-          <li><router-link to="/reviews">Books</router-link></li>
+        
+        <button class="menu-toggle" @click="toggleMenu" aria-label="Toggle menu">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </button>
+
+        <ul class="nav-menu" :class="{ 'is-open': isMenuOpen }">
+          <li><router-link to="/" @click="closeMenu">Home</router-link></li>
+          <li><router-link to="/about" @click="closeMenu">About</router-link></li>
+          <li><router-link to="/reviews" @click="closeMenu">Books</router-link></li>
         </ul>
       </div>
     </nav>
@@ -33,7 +40,18 @@
 </template>
 
 <script setup lang="ts">
+import { ref } from 'vue'
+
 const currentYear = new Date().getFullYear()
+const isMenuOpen = ref(false)
+
+const toggleMenu = () => {
+  isMenuOpen.value = !isMenuOpen.value
+}
+
+const closeMenu = () => {
+  isMenuOpen.value = false
+}
 </script>
 
 <style>
