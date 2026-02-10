@@ -8,12 +8,27 @@
         <div class="review-meta-top">
           <span class="category">{{ review.category }}</span>
           <h1>{{ review.title }}</h1>
-          <div class="meta-details">
-            <span class="author">By {{ review.author }}</span>
-            <span class="separator">|</span>
-            <span class="rating"><StarRating :rating="review.rating" /></span>
-            <span class="separator">|</span>
-            <time>{{ review.publishedAt }}</time>
+          <div class="meta-list">
+            <div class="meta-item">
+              <span class="meta-label">Rating :</span>
+              <span class="meta-value"><StarRating :rating="review.rating" /></span>
+            </div>
+            <div class="meta-item">
+              <span class="meta-label">Author :</span>
+              <span class="meta-value">{{ review.author }}</span>
+            </div>
+            <div class="meta-item">
+              <span class="meta-label">Pages :</span>
+              <span class="meta-value">{{ review.page }}</span>
+            </div>
+            <div class="meta-item">
+              <span class="meta-label">Publication Date :</span>
+              <span class="meta-value">{{ review.publishedAt }}</span>
+            </div>
+            <div class="meta-item">
+              <span class="meta-label">Original Language :</span>
+              <span class="meta-value">{{ review.language }}</span>
+            </div>
           </div>
         </div>
       </div>
@@ -48,6 +63,8 @@ interface Review {
   title: string
   author: string
   rating: number
+  page: number
+  language: string
   category: string
   publishedAt: string
   file: string
@@ -134,16 +151,36 @@ async function loadWordContent(fileName: string) {
 .review-meta-top h1 {
   font-size: 42px;
   font-weight: 400;
-  margin-bottom: 20px;
+  margin-bottom: 25px;
   line-height: 1.2;
 }
 
-.meta-details {
-  font-size: 15px;
-  color: #666;
+.meta-list {
   display: flex;
-  justify-content: center;
-  gap: 15px;
+  flex-direction: column;
+  gap: 10px;
+  text-align: left;
+}
+
+.meta-item {
+  display: flex;
+  gap: 10px;
+  font-size: 16px;
+  line-height: 1.4;
+}
+
+.meta-label {
+  font-weight: 600;
+  color: #333;
+  min-width: 150px;
+}
+
+.meta-value {
+  color: #666;
+}
+
+.meta-value :deep(.star-rating) {
+  display: inline-flex;
 }
 
 .separator {
@@ -189,8 +226,8 @@ async function loadWordContent(fileName: string) {
     align-items: flex-start;
   }
   
-  .meta-details {
-    justify-content: flex-start;
+  .meta-list {
+    align-items: flex-start;
   }
 }
 </style>
