@@ -24,7 +24,7 @@
           </div>
           <div class="post-content">
             <div class="post-meta-inline">
-              <time>{{ review.createdAt }}</time>
+              <time>{{ formatDate(review.createdAt) }}</time>
               <StarRating :rating="review.rating" />
             </div>
             <h3>
@@ -47,6 +47,7 @@
 import { ref, computed, onMounted, watch } from 'vue'
 import { useRoute } from 'vue-router'
 import StarRating from '../components/StarRating.vue'
+import { formatDate } from '../utils/dateUtils'
 
 interface Review {
   slug: string

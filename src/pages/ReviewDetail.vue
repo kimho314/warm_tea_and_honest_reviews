@@ -23,7 +23,7 @@
             </div>
             <div class="meta-item">
               <span class="meta-label">Publication Date :</span>
-              <span class="meta-value">{{ review.publishedAt }}</span>
+              <span class="meta-value">{{ formatDate(review.publishedAt) }}</span>
             </div>
             <div class="meta-item">
               <span class="meta-label">Original Language :</span>
@@ -57,6 +57,7 @@ import { ref, onMounted } from 'vue'
 import { useRoute } from 'vue-router'
 import mammoth from 'mammoth'
 import StarRating from '../components/StarRating.vue'
+import { formatDate } from '../utils/dateUtils'
 
 interface Review {
   slug: string

@@ -54,5 +54,19 @@
     "file": "Reverie.docx",
     "cover": "Reverie.jpg",
     "excerpt": "It was as if God whispered, ‘She’s the one’. I finally understood the phrase ‘when you know you know."
+  },
+  {
+    "slug": "This Book Made Me Think of You",
+    "title": "This Book Made Me Think of You",
+    "author": "Libby Page",
+    "rating":5.0,
+    "page": 400,
+    "language": "English",
+    "category": "Grief, Adult, Fiction, Romance, Books about books",
+    "publishedAt": "2026-01-29",
+    "createdAt": "2026-02-10",
+    "file": "ThisBookMadeMeThinkOfYou.docx",
+    "cover": "ThisBookMadeMeThinkOfYou.png",
+    "excerpt": "Sometimes a new story is all you need."
   }
 ]

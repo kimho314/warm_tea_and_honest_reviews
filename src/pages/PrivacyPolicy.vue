@@ -2,7 +2,7 @@
   <div class="privacy-policy-page">
     <div class="content-container">
       <h1>Privacy Policy</h1>
-      <p class="last-updated">Last updated: February 1, 2026</p>
+      <p class="last-updated">Last updated: 01/02/2026</p>
 
       <section>
         <p>Warm Tea & Honest Revies LLC is dedicated to respecting the privacy of your personal information, and this privacy policy describes what information is collected from you on www.bookishwayfarer.com (hereinafter the “website”) and how it is used. The term “you” refers to anyone who uses, visits and/or views the website.</p>
@@ -127,7 +127,7 @@
 
       <section>
         <h2>PRIVACY POLICY UPDATES</h2>
-        <p>This privacy policy is effective as of February 1, 2026 and will be updated and modified as needed. You are responsible for visiting this page periodically to check for future updates to this policy. Any modifications to this privacy policy will be effective upon our publishing of the new terms, and your continued use of our website after the posting of any updates constitutes your acceptance of our modified privacy policy.</p>
+        <p>This privacy policy is effective as of 01/02/2026 and will be updated and modified as needed. You are responsible for visiting this page periodically to check for future updates to this policy. Any modifications to this privacy policy will be effective upon our publishing of the new terms, and your continued use of our website after the posting of any updates constitutes your acceptance of our modified privacy policy.</p>
       </section>
 
       <section>

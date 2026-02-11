@@ -2,7 +2,7 @@
   <div class="terms-and-conditions-page">
     <div class="content-container">
       <h1>Terms and Conditions</h1>
-      <p class="last-updated">Last updated: February 1, 2026</p>
+      <p class="last-updated">Last updated: 01/02/2026</p>
 
       <section>
         <p>By visiting and using www.warmteaandhonestreviews.com, you accept and agree to be bound by these Terms and Conditions including our Disclaimer and Privacy Policy posted on the website and incorporated herein by reference.</p>
