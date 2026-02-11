@@ -1,4 +1,5 @@
 <template>
+  <Analytics />
   <header>
     <nav class="navbar">
       <div class="nav-container">
@@ -41,6 +42,7 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
+import { Analytics } from '@vercel/analytics/vue';
 
 const currentYear = new Date().getFullYear()
 const isMenuOpen = ref(false)
