@@ -66,18 +66,22 @@ const route = useRoute()
 const allReviews = ref<Review[]>([])
 const selectedCategory = ref('')
 
-const categories = computed(() => {
-  const cats = allReviews.value.map(r => r.category)
-  return [...new Set(cats)]
-})
+const categories = ref<string[]>([])
 
 const filteredReviews = computed(() => {
   if (!selectedCategory.value) return allReviews.value
-  return allReviews.value.filter(r => r.category === selectedCategory.value)
+  return allReviews.value.filter(r => 
+    r.category.split(',').map(c => c.trim()).includes(selectedCategory.value)
+  )
 })
 
 onMounted(async () => {
   try {
+    // Fetch categories
+    const catResponse = await fetch('/category.json')
+    categories.value = await catResponse.json()
+
+    // Fetch reviews
     const response = await fetch('/reviews.json')
     const data = await response.json()
     allReviews.value = data.sort((a: Review, b: Review) => 
@@ -89,7 +93,7 @@ onMounted(async () => {
       selectedCategory.value = route.query.category as string
     }
   } catch (error) {
-    console.error('Error fetching reviews:', error)
+    console.error('Error fetching data:', error)
   }
 })
 
@@ -110,7 +114,8 @@ watch(() => route.query.category, (newCat) => {
 .filters {
   display: flex;
   justify-content: center;
-  gap: 15px;
+  flex-wrap: wrap;
+  gap: 10px;
   margin-bottom: 40px;
 }
 
