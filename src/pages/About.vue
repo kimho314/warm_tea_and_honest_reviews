@@ -3,7 +3,7 @@
     <section class="introduction">
       <div class="intro-container">
         <div class="intro-image">
-          <img src="/images/AboutMe.png" alt="Profile Image">
+          <img src="/images/AboutMe.png" alt="Lotus's Profile Image">
         </div>
         <div class="intro-text">
 <!--          <p class="intro-subtitle">Hi there, I'm Julia.</p>-->
@@ -25,6 +25,28 @@
     </section>
   </div>
 </template>
+
+<script setup lang="ts">
+import { useHead } from '@unhead/vue'
+
+useHead({
+  title: 'About Lotus | Warm Tea & Honest Reviews',
+  meta: [
+    {
+      name: 'description',
+      content: 'Learn more about Lotus, the book lover behind Warm Tea & Honest Reviews. Discover her passion for reading across languages and her journey through life, one page at a time.'
+    },
+    {
+      property: 'og:title',
+      content: 'About Lotus'
+    },
+    {
+      property: 'og:description',
+      content: 'Learn more about the book lover behind Warm Tea & Honest Reviews.'
+    }
+  ]
+})
+</script>
 
 <style scoped>
 .about-page {

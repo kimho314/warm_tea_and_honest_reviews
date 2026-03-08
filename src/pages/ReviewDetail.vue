@@ -53,8 +53,9 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted } from 'vue'
+import { ref, onMounted, computed } from 'vue'
 import { useRoute } from 'vue-router'
+import { useHead } from '@unhead/vue'
 import mammoth from 'mammoth'
 import StarRating from '../components/StarRating.vue'
 import { formatDate } from '../utils/dateUtils'
@@ -78,6 +79,24 @@ const review = ref<Review | null>(null)
 const contentHtml = ref('')
 const loading = ref(true)
 const error = ref('')
+
+useHead({
+  title: computed(() => review.value ? `${review.value.title} | Warm Tea & Honest Reviews` : 'Review Detail'),
+  meta: [
+    {
+      name: 'description',
+      content: computed(() => review.value ? `${review.value.author}의 '${review.value.title}' 리뷰입니다. ${review.value.excerpt}` : 'Read our honest book review.')
+    },
+    {
+      property: 'og:title',
+      content: computed(() => review.value ? review.value.title : 'Book Review')
+    },
+    {
+      property: 'og:image',
+      content: computed(() => review.value ? `/covers/${review.value.cover}` : '')
+    }
+  ]
+})
 
 onMounted(async () => {
   try {

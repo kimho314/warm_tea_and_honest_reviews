@@ -46,8 +46,27 @@
 <script setup lang="ts">
 import { ref, computed, onMounted, watch } from 'vue'
 import { useRoute } from 'vue-router'
+import { useHead } from '@unhead/vue'
 import StarRating from '../components/StarRating.vue'
 import { formatDate } from '../utils/dateUtils'
+
+useHead({
+  title: 'All Book Reviews | Warm Tea & Honest Reviews',
+  meta: [
+    {
+      name: 'description',
+      content: 'Browse our complete collection of book reviews. Filter by category to find your next favorite read.'
+    },
+    {
+      property: 'og:title',
+      content: 'All Book Reviews'
+    },
+    {
+      property: 'og:description',
+      content: 'Browse our complete collection of book reviews.'
+    }
+  ]
+})
 
 interface Review {
   slug: string

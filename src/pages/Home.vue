@@ -71,7 +71,34 @@
 
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
+import { useHead } from '@unhead/vue'
 import StarRating from '../components/StarRating.vue'
+
+useHead({
+  title: 'Warm Tea & Honest Reviews | Cozy Book Reviews by Julia',
+  meta: [
+    {
+      name: 'description',
+      content: 'A calm, text-focused reading experience. Honest book reviews, cozy vibes, and friendly discussions about stories that stay with you.'
+    },
+    {
+      name: 'keywords',
+      content: 'book reviews, cozy reading, honest reviews, fiction, romance, book blog'
+    },
+    {
+      property: 'og:title',
+      content: 'Warm Tea & Honest Reviews'
+    },
+    {
+      property: 'og:description',
+      content: 'Honest book reviews, cozy vibes, and friendly discussions.'
+    },
+    {
+      property: 'og:type',
+      content: 'website'
+    }
+  ]
+})
 
 interface Review {
   slug: string
