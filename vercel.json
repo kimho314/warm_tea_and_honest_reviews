@@ -1,0 +1,12 @@
+{
+  "rewrites": [
+    {
+      "source": "/(reviews/.*|covers/.*|images/.*|privacy_policy/.*|terms_and_conditions/.*|category.json|reviews.json|robots.txt|sitemap.xml)",
+      "destination": "/$1"
+    },
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
+  ]
+}
