@@ -1,11 +1,11 @@
 import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router/index'
-import { createUnhead } from '@unhead/vue'
+import { createHead } from '@unhead/vue/client'
 import './styles/main.css'
 
 const app = createApp(App)
-const head = createUnhead()
+const head = createHead()
 
 app.use(router)
 app.use(head)
