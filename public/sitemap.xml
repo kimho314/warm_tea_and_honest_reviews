@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <!-- Static Pages -->
   <url>
     <loc>https://warm-tea-and-honest-reviews.vercel.app/</loc>
     <lastmod>2026-03-16</lastmod>
@@ -20,37 +21,37 @@
   </url>
   <url>
     <loc>https://warm-tea-and-honest-reviews.vercel.app/reviews/starry-night</loc>
-    <lastmod>2026-03-16</lastmod>
+    <lastmod>2026-01-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://warm-tea-and-honest-reviews.vercel.app/reviews/ilkbahar-ruyasi</loc>
-    <lastmod>2026-03-16</lastmod>
+    <lastmod>2026-01-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://warm-tea-and-honest-reviews.vercel.app/reviews/romantik-komediciler</loc>
-    <lastmod>2026-03-16</lastmod>
+    <lastmod>2026-01-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://warm-tea-and-honest-reviews.vercel.app/reviews/reverie</loc>
-    <lastmod>2026-03-16</lastmod>
+    <lastmod>2026-01-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://warm-tea-and-honest-reviews.vercel.app/reviews/this-book-made-me-think-of-you</loc>
-    <lastmod>2026-03-16</lastmod>
+    <lastmod>2026-02-10</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://warm-tea-and-honest-reviews.vercel.app/reviews/daughter-of-the-moon-goddess</loc>
-    <lastmod>2026-03-16</lastmod>
+    <lastmod>2026-03-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
