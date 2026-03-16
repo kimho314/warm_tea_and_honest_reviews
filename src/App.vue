@@ -31,11 +31,12 @@
   <footer>
     <div class="footer-content">
       <p>&copy; {{ currentYear }} Warm Tea & Honest Reviews | All Rights Reserved</p>
-      <div class="footer-links">
-        <router-link to="/privacy">Privacy Policy</router-link>
+      <p> Book covers and promotional materials are the property of their respective publishers and authors. They are used on this site for the purpose of review and criticism under Fair Use guidelines.</p>
+<!--      <div class="footer-links">-->
+<!--        <router-link to="/privacy">Privacy Policy</router-link>-->
 <!--        <a href="#">Disclaimer</a>-->
-        <router-link to="/terms">Terms and Conditions</router-link>
-      </div>
+<!--        <router-link to="/terms">Terms and Conditions</router-link>-->
+<!--      </div>-->
     </div>
   </footer>
 </template>
