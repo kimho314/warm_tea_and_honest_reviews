@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://warm-tea-and-honest-reviews.vercel.app/sitemap.xml

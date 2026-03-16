@@ -1,9 +1,9 @@
 [
   {
-    "slug": "Starry Night",
+    "slug": "starry-night",
     "title": "Starry Night",
     "author": "Debbie Macomber",
-    "rating":3.5,
+    "rating": 3.5,
     "page": 256,
     "language": "English",
     "category": "Adult,Romance,Fiction,Christmas",
@@ -28,10 +28,10 @@
     "excerpt": "A touching story of second chances and the enduring power of home."
   },
   {
-    "slug": "Romantik Komediciler",
+    "slug": "romantik-komediciler",
     "title": "Romantik Komediciler",
     "author": "Katherine Center",
-    "rating":4,
+    "rating": 4,
     "page": 336,
     "language": "English",
     "category": "Adult,Clean Romance,Fiction,Forced Proximity",
@@ -42,10 +42,10 @@
     "excerpt": ""
   },
   {
-    "slug": "Reverie",
+    "slug": "reverie",
     "title": "Reverie",
     "author": "Drew Taylor",
-    "rating":4,
+    "rating": 4,
     "page": 408,
     "language": "English",
     "category": "Adult,Clean Romance,Christian Romance,Fiction",
@@ -56,10 +56,10 @@
     "excerpt": "It was as if God whispered, ‘She’s the one’. I finally understood the phrase ‘when you know you know."
   },
   {
-    "slug": "This Book Made Me Think of You",
+    "slug": "this-book-made-me-think-of-you",
     "title": "This Book Made Me Think of You",
     "author": "Libby Page",
-    "rating":5.0,
+    "rating": 5,
     "page": 400,
     "language": "English",
     "category": "Grief,Adult,Fiction,Romance,Books about books",
@@ -70,10 +70,10 @@
     "excerpt": "Sometimes a new story is all you need."
   },
   {
-    "slug": "Daughter of the Moon Goddess",
+    "slug": "daughter-of-the-moon-goddess",
     "title": "Daughter of the Moon Goddess",
     "author": "Sue Lynn Tan",
-    "rating":5.0,
+    "rating": 5,
     "page": 504,
     "language": "English",
     "category": "Young Adult,Fiction,Fantasy,Romance,Romantasy,Mythology",
