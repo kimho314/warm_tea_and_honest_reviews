@@ -17,8 +17,8 @@
 
         <ul class="nav-menu" :class="{ 'is-open': isMenuOpen }">
           <li><router-link to="/" @click="closeMenu">Home</router-link></li>
-          <li><router-link to="/about" @click="closeMenu">About</router-link></li>
-          <li><router-link to="/reviews" @click="closeMenu">Books</router-link></li>
+          <li><router-link to="/about" @click="closeMenu">About Me</router-link></li>
+          <li><router-link to="/reviews" @click="closeMenu">Book Reviews</router-link></li>
         </ul>
       </div>
     </nav>
