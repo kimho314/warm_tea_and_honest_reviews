@@ -3,19 +3,19 @@
   <!-- Static Pages -->
   <url>
     <loc>https://warm-tea-and-honest-reviews.vercel.app/</loc>
-    <lastmod>2026-03-22</lastmod>
+    <lastmod>2026-03-23</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://warm-tea-and-honest-reviews.vercel.app/reviews</loc>
-    <lastmod>2026-03-22</lastmod>
+    <lastmod>2026-03-23</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://warm-tea-and-honest-reviews.vercel.app/about</loc>
-    <lastmod>2026-03-22</lastmod>
+    <lastmod>2026-03-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -58,6 +58,18 @@
   <url>
     <loc>https://warm-tea-and-honest-reviews.vercel.app/reviews/the-storied-life-of-aj-fikry</loc>
     <lastmod>2026-03-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://warm-tea-and-honest-reviews.vercel.app/reviews/is-she-really-going-out-with-him?</loc>
+    <lastmod>2026-03-23</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://warm-tea-and-honest-reviews.vercel.app/reviews/the-silent-patient</loc>
+    <lastmod>2026-03-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
