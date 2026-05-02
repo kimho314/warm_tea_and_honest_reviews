@@ -18,7 +18,7 @@
       </div>
 
       <div class="posts-grid">
-        <article v-for="review in filteredReviews" :key="review.slug" class="post-card">
+        <article v-for="review in paginatedReviews" :key="review.slug" class="post-card">
           <div class="post-image">
             <img :src="'/covers/' + review.cover" :alt="review.title">
           </div>
@@ -34,6 +34,24 @@
             <router-link :to="'/reviews/' + review.slug" class="read-more">Read More →</router-link>
           </div>
         </article>
+      </div>
+
+      <div class="pagination" v-if="totalPages > 1">
+        <button 
+          :disabled="currentPage === 1" 
+          @click="currentPage--"
+          class="page-btn"
+        >
+          &larr; Previous
+        </button>
+        <span class="page-info">Page {{ currentPage }} of {{ totalPages }}</span>
+        <button 
+          :disabled="currentPage === totalPages" 
+          @click="currentPage++"
+          class="page-btn"
+        >
+          Next &rarr;
+        </button>
       </div>
       
       <div v-if="filteredReviews.length === 0" class="no-results">
@@ -84,6 +102,8 @@ interface Review {
 const route = useRoute()
 const allReviews = ref<Review[]>([])
 const selectedCategory = ref('')
+const currentPage = ref(1)
+const pageSize = 6
 
 const categories = ref<string[]>([])
 
@@ -92,6 +112,20 @@ const filteredReviews = computed(() => {
   return allReviews.value.filter(r => 
     r.category.split(',').map(c => c.trim()).includes(selectedCategory.value)
   )
+})
+
+const totalPages = computed(() => {
+  return Math.ceil(filteredReviews.value.length / pageSize)
+})
+
+const paginatedReviews = computed(() => {
+  const start = (currentPage.value - 1) * pageSize
+  const end = start + pageSize
+  return filteredReviews.value.slice(start, end)
+})
+
+watch(selectedCategory, () => {
+  currentPage.value = 1
 })
 
 onMounted(async () => {
@@ -151,6 +185,40 @@ watch(() => route.query.category, (newCat) => {
   background: #333;
   color: #fff;
   border-color: #333;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  margin-top: 40px;
+  margin-bottom: 20px;
+}
+
+.page-btn {
+  background: none;
+  border: 1px solid #ddd;
+  padding: 8px 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: inherit;
+}
+
+.page-btn:hover:not(:disabled) {
+  background: #333;
+  color: #fff;
+  border-color: #333;
+}
+
+.page-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.page-info {
+  font-size: 0.9rem;
+  color: #666;
 }
 
 .no-results {
