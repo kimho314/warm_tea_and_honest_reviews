@@ -21,7 +21,7 @@
       <div class="posts-grid">
         <article v-for="review in recentReviews" :key="review.slug" class="post-card">
           <div class="post-image">
-            <img :src="'/covers/' + review.cover" :alt="review.title">
+            <img :src="review.imageUrl" :alt="review.title">
           </div>
           <div class="post-content">
             <div class="post-meta-inline">
@@ -101,28 +101,28 @@ useHead({
 })
 
 interface Review {
+  id: string
   slug: string
   title: string
   author: string
   rating: number
-  category: string
+  page: number
+  language: string
+  categories: string[]
   publishedAt: string
   createdAt: string
-  file: string
-  cover: string
   excerpt: string
+  imageUrl: string
 }
 
 const recentReviews = ref<Review[]>([])
 
 onMounted(async () => {
   try {
-    const response = await fetch('/reviews.json')
+    const response = await fetch('/api/reviews?page=0&offset=6')
+    if (!response.ok) throw new Error('Failed to fetch reviews from API')
     const data = await response.json()
-    // Sort by createdAt and take latest 6
-    recentReviews.value = data
-      .sort((a: Review, b: Review) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime())
-      .slice(0, 6)
+    recentReviews.value = data.reviews
   } catch (error) {
     console.error('Error fetching reviews:', error)
   }

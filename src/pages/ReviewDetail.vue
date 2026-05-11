@@ -3,10 +3,10 @@
     <div class="review-header">
       <div class="header-content">
         <div class="review-cover">
-          <img :src="'/covers/' + review.cover" :alt="review.title">
+          <img :src="review.imageUrl" :alt="review.title">
         </div>
         <div class="review-meta-top">
-          <span class="category">{{ review.category }}</span>
+          <span class="category">{{ review.categories.join(', ') }}</span>
           <h1>{{ review.title }}</h1>
           <div class="meta-list">
             <div class="meta-item">
@@ -56,22 +56,23 @@
 import { ref, onMounted, computed } from 'vue'
 import { useRoute } from 'vue-router'
 import { useHead } from '@unhead/vue'
-import mammoth from 'mammoth'
 import StarRating from '../components/StarRating.vue'
 import { formatDate } from '../utils/dateUtils'
 
 interface Review {
+  id: string
   slug: string
   title: string
   author: string
   rating: number
   page: number
   language: string
-  category: string
+  categories: string[]
   publishedAt: string
-  file: string
-  cover: string
+  createdAt: string
   excerpt: string
+  content: string
+  imageUrl: string
 }
 
 const route = useRoute()
@@ -93,45 +94,31 @@ useHead({
     },
     {
       property: 'og:image',
-      content: computed(() => review.value ? `/covers/${review.value.cover}` : '')
+      content: computed(() => review.value ? review.value.imageUrl : '')
     }
   ]
 })
 
 onMounted(async () => {
   try {
-    const response = await fetch('/reviews.json')
-    const data = await response.json()
-    const found = data.find((r: Review) => r.slug === route.params.slug)
-    
-    if (found) {
-      review.value = found
-      await loadWordContent(found.file)
-    } else {
-      loading.value = false
+    const response = await fetch(`/api/reviews/${route.params.slug}`)
+    if (!response.ok) {
+      if (response.status === 404) {
+        loading.value = false
+        return
+      }
+      throw new Error('Failed to fetch review from API')
     }
+    const data: Review = await response.json()
+    review.value = data
+    contentHtml.value = data.content
+    loading.value = false
   } catch (err) {
-    console.error('Error fetching review metadata:', err)
-    error.value = 'Failed to load review metadata.'
+    console.error('Error fetching review from API:', err)
+    error.value = 'Failed to load review content.'
     loading.value = false
   }
 })
-
-async function loadWordContent(fileName: string) {
-  try {
-    const response = await fetch(`/reviews/${fileName}`)
-    if (!response.ok) throw new Error('Could not find the Word document.')
-    
-    const arrayBuffer = await response.arrayBuffer()
-    const result = await mammoth.convertToHtml({ arrayBuffer })
-    contentHtml.value = result.value
-  } catch (err) {
-    console.error('Error converting Word document:', err)
-    error.value = 'Failed to load review content.'
-  } finally {
-    loading.value = false
-  }
-}
 </script>
 
 <style scoped>

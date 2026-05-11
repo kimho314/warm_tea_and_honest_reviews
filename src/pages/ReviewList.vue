@@ -11,16 +11,16 @@
         >All</button>
         <button 
           v-for="cat in categories" 
-          :key="cat"
-          @click="selectedCategory = cat"
-          :class="{ active: selectedCategory === cat }"
-        >{{ cat }}</button>
+          :key="cat.id"
+          @click="selectedCategory = cat.name"
+          :class="{ active: selectedCategory === cat.name }"
+        >{{ cat.name }}</button>
       </div>
 
       <div class="posts-grid">
         <article v-for="review in paginatedReviews" :key="review.slug" class="post-card">
           <div class="post-image">
-            <img :src="'/covers/' + review.cover" :alt="review.title">
+            <img :src="review.imageUrl" :alt="review.title">
           </div>
           <div class="post-content">
             <div class="post-meta-inline">
@@ -54,7 +54,7 @@
         </button>
       </div>
       
-      <div v-if="filteredReviews.length === 0" class="no-results">
+      <div v-if="allReviews.length === 0" class="no-results">
         <p>No reviews found for this category.</p>
       </div>
     </section>
@@ -87,59 +87,82 @@ useHead({
 })
 
 interface Review {
+  id: string
   slug: string
   title: string
   author: string
   rating: number
-  category: string
+  page: number
+  language: string
+  categories: string[]
   publishedAt: string
   createdAt: string
-  file: string
-  cover: string
   excerpt: string
+  imageUrl: string
+}
+
+interface Category {
+  id: string
+  name: string
+  createdAt: string
 }
 
 const route = useRoute()
 const allReviews = ref<Review[]>([])
+const totalReviews = ref(0)
 const selectedCategory = ref('')
 const currentPage = ref(1)
 const pageSize = 6
 
-const categories = ref<string[]>([])
+const categories = ref<Category[]>([])
 
-const filteredReviews = computed(() => {
-  if (!selectedCategory.value) return allReviews.value
-  return allReviews.value.filter(r => 
-    r.category.split(',').map(c => c.trim()).includes(selectedCategory.value)
-  )
-})
+const fetchReviews = async () => {
+  try {
+    const page = currentPage.value - 1
+    const offset = pageSize // offset seems to be used as limit/pageSize in the provided spec
+    let url = `/api/reviews?page=${page}&offset=${offset}`
+    
+    if (selectedCategory.value) {
+      url += `&category=${encodeURIComponent(selectedCategory.value)}`
+    }
+    
+    const response = await fetch(url)
+    if (!response.ok) throw new Error('Failed to fetch reviews from API')
+    const data = await response.json()
+    allReviews.value = data.reviews
+    totalReviews.value = data.total
+  } catch (error) {
+    console.error('Error fetching reviews:', error)
+  }
+}
 
 const totalPages = computed(() => {
-  return Math.ceil(filteredReviews.value.length / pageSize)
+  return Math.ceil(totalReviews.value / pageSize)
 })
 
 const paginatedReviews = computed(() => {
-  const start = (currentPage.value - 1) * pageSize
-  const end = start + pageSize
-  return filteredReviews.value.slice(start, end)
+  return allReviews.value
+})
+
+watch(currentPage, () => {
+  fetchReviews()
 })
 
 watch(selectedCategory, () => {
   currentPage.value = 1
+  fetchReviews()
 })
 
 onMounted(async () => {
   try {
-    // Fetch categories
-    const catResponse = await fetch('/category.json')
-    categories.value = await catResponse.json()
+    // Fetch categories from API
+    const catResponse = await fetch('/api/categories')
+    if (!catResponse.ok) throw new Error('Failed to fetch categories from API')
+    const catData = await catResponse.json()
+    categories.value = catData.categories
 
-    // Fetch reviews
-    const response = await fetch('/reviews.json')
-    const data = await response.json()
-    allReviews.value = data.sort((a: Review, b: Review) => 
-      new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
-    )
+    // Fetch initial reviews from API
+    await fetchReviews()
     
     // Set initial category from query param
     if (route.query.category) {
