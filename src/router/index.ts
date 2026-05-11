@@ -18,7 +18,7 @@ const routes = [
     component: ReviewList
   },
   {
-    path: '/reviews/:slug',
+    path: '/reviews/:id',
     name: 'ReviewDetail',
     component: ReviewDetail
   },

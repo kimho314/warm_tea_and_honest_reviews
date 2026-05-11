@@ -18,7 +18,7 @@
       </div>
 
       <div class="posts-grid">
-        <article v-for="review in paginatedReviews" :key="review.slug" class="post-card">
+        <article v-for="review in paginatedReviews" :key="review.id" class="post-card">
           <div class="post-image">
             <img :src="review.imageUrl" :alt="review.title">
           </div>
@@ -28,10 +28,10 @@
               <StarRating :rating="review.rating" />
             </div>
             <h3>
-              <router-link :to="'/reviews/' + review.slug">{{ review.title }}</router-link>
+              <router-link :to="'/reviews/' + review.id">{{ review.title }}</router-link>
             </h3>
             <p>{{ review.excerpt }}</p>
-            <router-link :to="'/reviews/' + review.slug" class="read-more">Read More →</router-link>
+            <router-link :to="'/reviews/' + review.id" class="read-more">Read More →</router-link>
           </div>
         </article>
       </div>

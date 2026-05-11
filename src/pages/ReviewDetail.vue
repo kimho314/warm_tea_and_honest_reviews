@@ -101,7 +101,7 @@ useHead({
 
 onMounted(async () => {
   try {
-    const response = await fetch(`/api/reviews/${route.params.slug}`)
+    const response = await fetch(`/api/reviews/${route.params.id}`)
     if (!response.ok) {
       if (response.status === 404) {
         loading.value = false
