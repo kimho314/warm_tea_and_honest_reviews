@@ -130,6 +130,7 @@ const fetchReviews = async () => {
     if (!response.ok) throw new Error('Failed to fetch reviews from API')
     const data = await response.json()
     allReviews.value = data.reviews
+    console.log(allReviews.value.values())
     totalReviews.value = data.total
   } catch (error) {
     console.error('Error fetching reviews:', error)
