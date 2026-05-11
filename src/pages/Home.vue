@@ -119,7 +119,7 @@ const recentReviews = ref<Review[]>([])
 
 onMounted(async () => {
   try {
-    const response = await fetch('/api/reviews?page=0&offset=6')
+    const response = await fetch('/api/reviews?sort=recent')
     if (!response.ok) throw new Error('Failed to fetch reviews from API')
     const data = await response.json()
     recentReviews.value = data.reviews
